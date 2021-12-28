@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    title: `Electrified`,
+    description: `Electrified is the new standard when it comes to providing our customers with high quality and reliable electric scooters. We share our expertise with our customers so they can get involved in the newest form of transportation.`,
     author: `@gatsbyjs`,
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
   },
@@ -17,6 +17,16 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    {
+      resolve: "gatsby-source-wordpress",
+      options: {
+        schema: {
+          timeout: 60000
+        },
+        url: "http://electrified.local/graphql",
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
