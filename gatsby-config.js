@@ -18,6 +18,8 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    `react-responsive-carousel`,
+    `pure-react-carousel`,
     {
       resolve: "gatsby-source-wordpress",
       options: {
