@@ -24,9 +24,48 @@
 .carousel {
     display: flex;
     flex-direction: row;
-
+    width: fit-content;
 }
 
 .slider {
     width: 323px;
+}
+
+.content {
+    display: flex;
+    justify-content: space-around;
+}
+
+table {
+    width: 50%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+table td {
+   padding-left: 10px;
+}
+
+table tr:nth-child(even){
+    background: lightgray;
+}
+
+table tr:nth-last-child(1) {
+    font-weight: bolder;
+    text-align: center;
+    font-size: 30px;
+}
+
+table th {
+    border-bottom: 2px solid black;
+}
+
+.page-title {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 5%;
+}
+
+@media (max-width: 1400px) {
+    .container {
+        grid-template-columns: 1fr 1fr;
+    }
 }

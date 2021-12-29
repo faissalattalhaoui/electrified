@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
-import { nav, navLinks, content } from './layout.module.css'
+import { nav, navLinks, content, link } from './layout.module.css'
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -22,8 +22,8 @@ const Layout = ({ children }) => {
           <header><StaticImage alt="Logo" src="../images/logo.png" /></header>
         </Link>
         <ul className={navLinks}>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/scooters">Scooters</Link></li>
+          <Link className={link} to="/"><li>Home</li></Link>
+          <Link className={link} to="/scooters"><li>Scooters</li></Link>
         </ul>
       </nav>
       <main className={content}>{children}</main>
