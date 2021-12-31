@@ -1,31 +1,66 @@
 import * as React from "react"
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
-
+import { graphql, Link } from "gatsby"
+import { getImage, StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
-import Seo from "../components/seo"
+import Scooter from "../components/scooter"
+import { featured, featuredContainer, featuredText } from "../page.module.css"
 
-const IndexPage = () => (
-  <Layout>
-    <Seo title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <StaticImage
-      src="../images/gatsby-astronaut.png"
-      width={300}
-      quality={95}
-      formats={["auto", "webp", "avif"]}
-      alt="A Gatsby astronaut"
-      style={{ marginBottom: `1.45rem` }}
-    />
-    <p>
-      <Link to="/page-2/">Go to page 2</Link> <br />
-      <Link to="/using-typescript/">Go to "Using TypeScript"</Link> <br />
-      <Link to="/using-ssr">Go to "Using SSR"</Link> <br />
-      <Link to="/using-dsg">Go to "Using DSG"</Link>
-    </p>
-  </Layout>
-)
+const IndexPage = ({
+  data: {
+    wpPage: { homePage },
+  },
+}) => {
+  //const image = getImage(homePage.featuredScooters.)
+  return (
+    <Layout>
+      <div className={featuredContainer}>
+        <div className={featuredText}>
+          <h2>{homePage.featuredScooters.title.toUpperCase()}</h2>
+          {homePage.featuredScooters.description}
+        </div>
+        <div className={featured}>
+          {
+            homePage.featuredScooters.scooters.map(scooter => (
+              <Scooter key={scooter.id} scooter={scooter} slug={`scooters/${scooter.slug}`} />
+            ))
+          }
+        </div>
+      </div>
+
+    </Layout>
+  )
+}
+
+export const query = graphql`
+query {
+  wpPage(slug: {eq: "home"}) {
+    homePage {
+      featuredScooters {
+        scooters {
+          ... on WpScooter {
+            id
+            scooterMeta {
+              pictures {
+                picture1 {
+                  altText
+                  localFile {
+                    childImageSharp {
+                      gatsbyImageData(placeholder: BLURRED)
+                    }
+                  }
+                }
+              }
+            }
+            title
+            slug
+          }
+        }
+        description
+        title
+      }
+    }
+  }
+}
+`
 
 export default IndexPage

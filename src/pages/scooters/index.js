@@ -2,7 +2,7 @@ import * as React from 'react';
 import { graphql } from "gatsby";
 import Scooter from '../../components/scooter';
 import Layout from '../../components/layout';
-import { container } from '../../page.module.css';
+import { container, scooters } from '../../page.module.css';
 
 const ScooterPage = ({
   data: {

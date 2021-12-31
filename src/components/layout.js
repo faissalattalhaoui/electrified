@@ -26,7 +26,7 @@ const Layout = ({ children }) => {
           <Link className={link} to="/scooters"><li>Scooters</li></Link>
         </ul>
       </nav>
-      <main className={content}>{children}</main>
+      <main>{children}</main>
 
     </div>
   )
