@@ -61,3 +61,11 @@ body {
 .header-container {
   border-bottom: 5px solid black;
 }
+
+@media (max-width: 800px) {
+  .nav {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  }
+}

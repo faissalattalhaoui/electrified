@@ -86,8 +86,83 @@ table th {
     width: 50%;
 }
 
+.header-container {
+    margin: 0 100px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.header-container p {
+    margin-right: 200px;
+}
+
+.header-image {
+    width: 100%;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.colors {
+    display: flex;
+    height: 40px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.colors p {
+    margin: 0;
+    width: 60%;
+}
+
+.filter-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 100%;
+}
+
+.filter-container label {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-right: 5px;
+}
+
+.filter {
+    width: 20%;
+    border-radius: 5px;
+}
+
 @media (max-width: 1400px) {
     .container {
         grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 1400px) {
+    .featured {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+    }
+}
+
+@media (max-width: 800px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+
+    .page-title {
+        text-align: center;
+    }
+
+    .content {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    table {
+        width: 70%;
+        margin: 30px 0;
     }
 }

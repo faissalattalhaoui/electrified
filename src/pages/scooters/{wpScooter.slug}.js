@@ -5,13 +5,14 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import Layout from "../../components/layout";
 import { CarouselProvider, Slide, Slider, Dot } from "pure-react-carousel";
 import 'pure-react-carousel/dist/react-carousel.es.css';
-import { thumbContainer, thumb, carousel, slider, content, pageTitle } from '../../page.module.css';
+import { thumbContainer, thumb, carousel, slider, content, pageTitle, colors } from '../../page.module.css';
 
 const ScooterPage = ({
   data: {
     wpScooter: {
       scooterMeta: scooter,
-      title: title
+      title: title,
+      colors: color
     }
   }
 }) => {
@@ -72,6 +73,12 @@ const ScooterPage = ({
             <td>Charge time</td>
             <td>{scooter.chargeTime} hours</td>
           </tr>
+          <tr style={{height: 40}}>
+            <td>Available colors</td>
+            <td className={colors}>{color.nodes.map((color) => {
+              return <p>{color.name}</p>
+            })}</td>
+          </tr>
           <tr>
             <td>Price</td>
             <td>€{scooter.price}</td>
@@ -129,6 +136,11 @@ query ($id: String) {
         price
       }
       title
+      colors {
+        nodes {
+          name
+        }
+      }
     }
   }
 `

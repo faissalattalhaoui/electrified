@@ -1,22 +1,29 @@
 import * as React from "react"
 import { graphql, Link } from "gatsby"
-import { getImage, StaticImage } from "gatsby-plugin-image"
+import { getImage, GatsbyImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import Scooter from "../components/scooter"
-import { featured, featuredContainer, featuredText } from "../page.module.css"
+import { featured, featuredContainer, featuredText, headerImage, headerContainer } from "../page.module.css"
 
 const IndexPage = ({
   data: {
     wpPage: { homePage },
   },
 }) => {
-  //const image = getImage(homePage.featuredScooters.)
+  const image = getImage(homePage.homeInfo.image.localFile)
   return (
     <Layout>
+      <div className={headerContainer}>
+        <h1>{homePage.homeInfo.title.toUpperCase()}</h1>
+        <Link to="/scooters">
+          <GatsbyImage className={headerImage} image={image} />
+        </Link>
+        <p>{homePage.homeInfo.description}</p>
+      </div>
       <div className={featuredContainer}>
         <div className={featuredText}>
           <h2>{homePage.featuredScooters.title.toUpperCase()}</h2>
-          {homePage.featuredScooters.description}
+          <p>{homePage.featuredScooters.description}</p>
         </div>
         <div className={featured}>
           {
@@ -57,6 +64,18 @@ query {
         }
         description
         title
+      }
+      homeInfo {
+        description
+        title
+        image {
+          altText
+          localFile {
+            childImageSharp {
+              gatsbyImageData(placeholder: BLURRED)
+            }
+          }
+        }
       }
     }
   }
