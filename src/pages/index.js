@@ -16,7 +16,7 @@ const IndexPage = ({
       <div className={headerContainer}>
         <h1>{homePage.homeInfo.title.toUpperCase()}</h1>
         <Link to="/scooters">
-          <GatsbyImage className={headerImage} image={image} />
+          <GatsbyImage alt={homePage.homeInfo.image.altText} className={headerImage} image={image} />
         </Link>
         <p>{homePage.homeInfo.description}</p>
       </div>

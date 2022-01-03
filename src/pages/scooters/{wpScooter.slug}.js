@@ -11,7 +11,7 @@ const ScooterPage = ({
   data: {
     wpScooter: {
       scooterMeta: scooter,
-      title: title,
+      title,
       colors: color
     }
   }
@@ -45,44 +45,48 @@ const ScooterPage = ({
           </Slider>
         </CarouselProvider>
         <table>
-          <tr>
-            <th>{title}</th>
-            <th>Specs</th>
-          </tr>
-          <tr>
-            <td>Make</td>
-            <td>{scooter.make}</td>
-          </tr>
-          <tr>
-            <td>Model</td>
-            <td>{scooter.model}</td>
-          </tr>
-          <tr>
-            <td>Top speed</td>
-            <td>{scooter.topSpeed} km/h</td>
-          </tr>
-          <tr>
-            <td>Range</td>
-            <td>{scooter.maxRange} km</td>
-          </tr>
-          <tr>
-            <td>Max. driver weight</td>
-            <td>{scooter.maxDriverWeight} kg</td>
-          </tr>
-          <tr>
-            <td>Charge time</td>
-            <td>{scooter.chargeTime} hours</td>
-          </tr>
-          <tr style={{height: 40}}>
-            <td>Available colors</td>
-            <td className={colors}>{color.nodes.map((color) => {
-              return <p>{color.name}</p>
-            })}</td>
-          </tr>
-          <tr>
-            <td>Price</td>
-            <td>€{scooter.price}</td>
-          </tr>
+          <thead>
+            <tr>
+              <th>{title}</th>
+              <th>Specs</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Make</td>
+              <td>{scooter.make}</td>
+            </tr>
+            <tr>
+              <td>Model</td>
+              <td>{scooter.model}</td>
+            </tr>
+            <tr>
+              <td>Top speed</td>
+              <td>{scooter.topSpeed} km/h</td>
+            </tr>
+            <tr>
+              <td>Range</td>
+              <td>{scooter.maxRange} km</td>
+            </tr>
+            <tr>
+              <td>Max. driver weight</td>
+              <td>{scooter.maxDriverWeight} kg</td>
+            </tr>
+            <tr>
+              <td>Charge time</td>
+              <td>{scooter.chargeTime} hours</td>
+            </tr>
+            <tr style={{ height: 40 }}>
+              <td>Available colors</td>
+              <td className={colors}>{color.nodes.map((color) => {
+                return <p key={color.name}>{color.name}</p>
+              })}</td>
+            </tr>
+            <tr>
+              <td>Price</td>
+              <td>€{scooter.price}</td>
+            </tr>
+          </tbody>
         </table>
       </div>
     </Layout>

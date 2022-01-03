@@ -1,7 +1,8 @@
 import * as React from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
-import { nav, navLinks, content, link } from './layout.module.css'
+import { nav, navLinks, link } from './layout.module.css';
+import Footer from "./footer";
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -27,7 +28,7 @@ const Layout = ({ children }) => {
         </ul>
       </nav>
       <main>{children}</main>
-
+      <Footer siteTitle={data.site.siteMetadata.title}/>
     </div>
   )
 }

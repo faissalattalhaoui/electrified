@@ -10,11 +10,10 @@ const ScooterPage = ({
   }
 }) => {
   const [makes, setMakes] = React.useState('')
-  console.log(makes)
   return (
     <Layout>
       <div className={filterContainer}>
-        <label>Filter by make:</label>
+        <label htmlFor='makes'>Filter by make:</label>
         <select className={filter} onChange={(make) => { setMakes(make.target.value) }} value={makes} name='makes' id='makes'>
           <option defaultValue={true} value="">All</option>
           {unique.map((make) => {
