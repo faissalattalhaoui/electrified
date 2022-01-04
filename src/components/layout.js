@@ -1,7 +1,8 @@
 import * as React from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
-import { nav, navLinks, link } from './layout.module.css';
+import { nav, navLinks, link, main } from './layout.module.css';
+import './wrapper.css';
 import Footer from "./footer";
 
 const Layout = ({ children }) => {
@@ -16,7 +17,7 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <div>
+    <>
       <title>{data.site.siteMetadata.title}</title>
       <nav className={nav}>
         <Link to="/">
@@ -27,9 +28,9 @@ const Layout = ({ children }) => {
           <Link className={link} to="/scooters"><li>Scooters</li></Link>
         </ul>
       </nav>
-      <main>{children}</main>
-      <Footer siteTitle={data.site.siteMetadata.title}/>
-    </div>
+      <main className={main}>{children}</main>
+      <Footer siteTitle={data.site.siteMetadata.title} />
+    </>
   )
 }
 

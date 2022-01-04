@@ -20,6 +20,10 @@ body {
   font-feature-settings: "kern", "liga", "clig", "calt";
 }
 
+.main {
+  flex-grow: 1;
+}
+
 .nav {
   display: flex;
   justify-content: space-between;
