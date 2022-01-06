@@ -144,6 +144,18 @@ table th {
         align-items: center;
         width: 50%;
     }
+
+    .header-container p {
+        margin-right: 0;
+    }
+
+    .header-container h1 {
+        font-size: 25px;
+    }
+
+    .slider {
+        width: 290px;
+    }
 }
 
 @media (max-width: 800px) {
